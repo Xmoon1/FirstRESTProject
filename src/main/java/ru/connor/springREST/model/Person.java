@@ -1,12 +1,10 @@
 package ru.connor.springREST.model;
 
-import com.sun.istack.NotNull;
-import org.hibernate.annotations.NotFound;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Person")
@@ -26,6 +24,16 @@ public class Person {
     @Email
     @NotEmpty(message = "Email should not be empty")
     private String email;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @Column(name = "created_whom")
+    @NotEmpty
+    private String createdWhom;
 
     public Person(String username, String email) {
         this.username = username;
@@ -67,5 +75,29 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime created_at) {
+        this.createdAt = created_at;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updated_at) {
+        this.updatedAt = updated_at;
+    }
+
+    public String getCreatedWhom() {
+        return createdWhom;
+    }
+
+    public void setCreatedWhom(String created_whom) {
+        this.createdWhom = created_whom;
     }
 }

@@ -1,4 +1,4 @@
-package ru.connor.springREST.repository;
+package ru.connor.springREST.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
